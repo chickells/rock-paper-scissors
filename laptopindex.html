@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+    <script>
+        const answers = ["rock", "paper", "scissors"]
+        
+        let rdm = Math.floor(Math.random() * 3)
+
+        function getComputerChoice() {
+            return answers[Math.floor(Math.random() * 3)];
+        }
+
+        function getUserChoice() {
+            return answers[Math.floor(Math.random() * 3)];
+        }
+
+        const pcChoice = getComputerChoice();
+        const userChoice = getUserChoice();
+
+        console.log("User = " + userChoice);
+        console.log("PC = " + pcChoice);
+
+        function playRound () {
+            // sooo for whatever reason when i pass in playRound(userChoice, pcChoice)
+            // IT DOESN'T FUCKING WORK, they are ALWAYS equal. makes no fucking sense tbh.
+            // but when I leave parameters blank it actually works
+            // is it because I'm calling them the same name as globally defined variables?
+            // idk
+
+            // using this reference
+            // https://www.geeksforgeeks.org/rock-paper-and-scissor-game-using-javascript/
+            if (userChoice === pcChoice) {
+                return "It's a tie!";
+            } 
+            else if (userChoice == "rock") {
+                if (pcChoice == "paper"){
+                    return "Paper beats rock. You lose!";
+            } else return "Rock beats scissors.  You win!";
+        } 
+        else if (userChoice == 'paper') {
+            if (pcChoice == 'rock') {
+                return 'Paper beats rock.  You win!';
+            } else return 'Scissors beats paper.  You lose!';
+        }
+        else if (userChoice == 'scissors') {
+            if (pcChoice == 'rock') {
+                return 'Rock beats scissors.  You lose!'
+            } else return 'Scissors beats paper.  You win!'
+        }}
+
+        console.log(playRound());
+        
+
+        // can't use answers[rdm] because both functions receive the same
+        // randomly generated num, have to generate within each function
+
+       
+
+       
+
+    </script>
+</body>
+</html>
