@@ -19,7 +19,7 @@
             return answers[Math.floor(Math.random() * 3)];
         }
 
-        const pcChoice = getComputerChoice();
+        let pcChoice = getComputerChoice();
         let userChoicePrompt = prompt("Rock, Paper, or Scissors?")
         let userChoice = userChoicePrompt.toLowerCase()
 
@@ -34,28 +34,40 @@
                 if (pcChoice == "paper"){
                     result = "Paper beats rock. You lose!";
                     pcScore++;
-            } else result = "Rock beats scissors.  You win!";
-                userScore++;
-            } 
+                    } else {result = "Rock beats scissors.  You win!";
+                    userScore++;
+            }} 
             else if (userChoice == 'paper') {
-            if (pcChoice == 'rock') {
-                result = 'Paper beats rock.  You win!';
-                userScore++;
-            } else result = 'Scissors beats paper.  You lose!';
-                pcScore++;
-            }
+                if (pcChoice == 'rock') {
+                    result = 'Paper beats rock.  You win!';
+                    userScore++;
+                    } else {result = 'Scissors beats paper.  You lose!';
+                    pcScore++;
+            }}
             else if (userChoice == 'scissors') {
-            if (pcChoice == 'rock') {
-                result = 'Rock beats scissors.  You lose!'
-                pcScore++;
-            } else result = 'Scissors beats paper.  You win!'};
-                userScore++;
+                if (pcChoice == 'rock') {
+                    result = 'Rock beats scissors.  You lose!'
+                    pcScore++;
+                    } else {result = 'Scissors beats paper.  You win!';
+                    userScore++;
+            }}
 
             alert(`User: ${userChoice}` + `\n` + `PC: ${pcChoice}` + `\n` + result + "\n" + "\n"
             + "Score:" + "\n" + `You: ${userScore}` + "\n" + `PC: ${pcScore}`);
         }
 
        playRound()
+
+       // PLAY ROUND WORKS PERFECTLY (was missing brackets per "else" which added score
+       // when i didn't mean to)
+
+       // NOW TIME TO BUILD THE "FOR" LOOP TO PLAY THE GAME UP TO A SCORE OF 5, LFG
+       // goal for today's off session, FINISH the loop.  start the UI?
+
+       // i think i am starting to understand how this all wraps into web dev tho
+       // in real life i'd start using "document.querySelector(etc)" to target
+       // elements on the page and update them via my js script
+       // IT'S KINDA COOL NGL, it's becoming less fucking lame lmao
 
 
         // PREVIOUS MID PROJECT NOTES:
