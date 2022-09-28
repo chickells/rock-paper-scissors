@@ -63,6 +63,7 @@
                     userScore++;
             }} else if (userChoice != "rock" || "paper" || "scissors") {
                     result = "Error: please enter a valid answer!";
+                    round--;
             }
 
             alert(`--- Round ${round} of 5 ---` + "\n" + 
@@ -76,9 +77,13 @@
         }
 
        function game() {
-            for (let i=0; i<5; i++) {
+            // using ROUND instead of i, this lets me modify
+            // the round within the PLAYROUND function
+            // incase user supplies an invalid answer
+            // and the round needs to be replayed
+            // LFG
+            for (round; round<6; round++) {
                 playRound();
-                round++;
             }
             alert("GAME OVER"
             + "\n" + "\n" + 
