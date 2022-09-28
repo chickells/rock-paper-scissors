@@ -9,6 +9,7 @@
 <body>
     <script>
         const answers = ["rock", "paper", "scissors"]
+        let result = ""
 
         function getComputerChoice() {
             return answers[Math.floor(Math.random() * 3)];
@@ -19,47 +20,55 @@
         }
 
         const pcChoice = getComputerChoice();
-        const userChoice = getUserChoice();
+        let userChoicePrompt = prompt("Rock, Paper, or Scissors?")
+        let userChoice = userChoicePrompt.toLowerCase()
 
-        console.log("User = " + userChoice);
-        console.log("PC = " + pcChoice);
+        let userScore = 0
+        let pcScore = 0
 
-        function playRound () {
-            // sooo for whatever reason when i pass in playRound(userChoice, pcChoice)
-            // IT DOESN'T FUCKING WORK, they are ALWAYS equal. makes no fucking sense tbh.
-            // but when I leave parameters blank it actually works
-            // is it because I'm calling them the same name as globally defined variables?
-            // idk
-
-            // using this reference
-            // https://www.geeksforgeeks.org/rock-paper-and-scissor-game-using-javascript/
+        function playRound () {            
             if (userChoice === pcChoice) {
-                return "It's a tie!";
+                result = "It's a tie!";
             } 
             else if (userChoice == "rock") {
                 if (pcChoice == "paper"){
-                    return "Paper beats rock. You lose!";
-            } else return "Rock beats scissors.  You win!";
+                    result = "Paper beats rock. You lose!";
+                    pcScore++;
+            } else result = "Rock beats scissors.  You win!";
+                userScore++;
             } 
             else if (userChoice == 'paper') {
             if (pcChoice == 'rock') {
-                return 'Paper beats rock.  You win!';
-            } else return 'Scissors beats paper.  You lose!';
+                result = 'Paper beats rock.  You win!';
+                userScore++;
+            } else result = 'Scissors beats paper.  You lose!';
+                pcScore++;
             }
             else if (userChoice == 'scissors') {
             if (pcChoice == 'rock') {
-                return 'Rock beats scissors.  You lose!'
-            } else return 'Scissors beats paper.  You win!'
-        }}
+                result = 'Rock beats scissors.  You lose!'
+                pcScore++;
+            } else result = 'Scissors beats paper.  You win!'};
+                userScore++;
 
-        console.log(playRound());
-        
+            alert(`User: ${userChoice}` + `\n` + `PC: ${pcChoice}` + `\n` + result + "\n" + "\n"
+            + "Score:" + "\n" + `You: ${userScore}` + "\n" + `PC: ${pcScore}`);
+        }
+
+       playRound()
 
 
-       
+        // PREVIOUS MID PROJECT NOTES:
+        // sooo for whatever reason when i pass in playRound(userChoice, pcChoice)
+        // IT DOESN'T FUCKING WORK, they are ALWAYS equal. makes no fucking sense tbh.
+        // but when I leave parameters blank it actually works
+        // is it because I'm calling them the same name as globally defined variables?
+        // idk
 
-       
-
+        // using this reference
+        // https://www.geeksforgeeks.org/rock-paper-and-scissor-game-using-javascript/
     </script>
 </body>
 </html>
+
+
