@@ -9,8 +9,6 @@
 <body>
     <script>
         const answers = ["rock", "paper", "scissors"]
-        
-        let rdm = Math.floor(Math.random() * 3)
 
         function getComputerChoice() {
             return answers[Math.floor(Math.random() * 3)];
@@ -42,13 +40,13 @@
                 if (pcChoice == "paper"){
                     return "Paper beats rock. You lose!";
             } else return "Rock beats scissors.  You win!";
-        } 
-        else if (userChoice == 'paper') {
+            } 
+            else if (userChoice == 'paper') {
             if (pcChoice == 'rock') {
                 return 'Paper beats rock.  You win!';
             } else return 'Scissors beats paper.  You lose!';
-        }
-        else if (userChoice == 'scissors') {
+            }
+            else if (userChoice == 'scissors') {
             if (pcChoice == 'rock') {
                 return 'Rock beats scissors.  You lose!'
             } else return 'Scissors beats paper.  You win!'
@@ -57,8 +55,6 @@
         console.log(playRound());
         
 
-        // can't use answers[rdm] because both functions receive the same
-        // randomly generated num, have to generate within each function
 
        
 
