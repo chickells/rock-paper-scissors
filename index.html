@@ -7,6 +7,7 @@
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
+    <button class="play">Play Game</button>
     <script>
         const answers = ["rock", "paper", "scissors"]
         let result = ""
@@ -19,14 +20,24 @@
             return answers[Math.floor(Math.random() * 3)];
         }
 
-        let pcChoice = getComputerChoice();
-        let userChoicePrompt = prompt("Rock, Paper, or Scissors?")
-        let userChoice = userChoicePrompt.toLowerCase()
+        const playBtn = document.querySelector(".play")
+        const play = document.querySelector('.play')
+        console.log(play);
+        play.addEventListener('click', game)
+
+        // let pcChoice = getComputerChoice();
+        // let userChoicePrompt = prompt("Rock, Paper, or Scissors?")
+        // let userChoice = userChoicePrompt.toLowerCase()
 
         let userScore = 0
         let pcScore = 0
+        let round = 1
 
-        function playRound () {            
+        function playRound () {  
+            let pcChoice = getComputerChoice();
+            let userChoicePrompt = prompt("Rock, Paper, or Scissors?");
+            let userChoice = userChoicePrompt.toLowerCase();          
+            
             if (userChoice === pcChoice) {
                 result = "It's a tie!";
             } 
@@ -50,13 +61,43 @@
                     pcScore++;
                     } else {result = 'Scissors beats paper.  You win!';
                     userScore++;
-            }}
+            }} else if (userChoice != "rock" || "paper" || "scissors") {
+                    result = "Error: please enter a valid answer!";
+            }
 
-            alert(`User: ${userChoice}` + `\n` + `PC: ${pcChoice}` + `\n` + result + "\n" + "\n"
-            + "Score:" + "\n" + `You: ${userScore}` + "\n" + `PC: ${pcScore}`);
+            alert(`--- Round ${round} of 5 ---` + "\n" + 
+                `User: ${userChoice}` + `\n` + 
+                `PC: ${pcChoice}` + `\n` + 
+                result + "\n" + "\n" + 
+                "Score:" + "\n" + 
+                `You: ${userScore}` + "\n" + 
+                `PC: ${pcScore}`);
+            
         }
 
-       playRound()
+       function game() {
+            for (let i=0; i<5; i++) {
+                playRound();
+                round++;
+            }
+            alert("GAME OVER"
+            + "\n" + "\n" + 
+            "Score:" + "\n" + 
+            `You: ${userScore}` + "\n" + 
+            `PC: ${pcScore}`);            
+       }
+
+       
+
+
+
+
+
+
+
+
+
+
 
        // PLAY ROUND WORKS PERFECTLY (was missing brackets per "else" which added score
        // when i didn't mean to)
