@@ -1,3 +1,5 @@
+
+
 const answers = ["rock", "paper", "scissors"]
 let result = ""
 
@@ -5,26 +7,17 @@ function getComputerChoice() {
     return answers[Math.floor(Math.random() * 3)];
 }
 
-//  WTF THIS SHIT DOESN'T WORK ANYMORE
-// Lol for real i'm just trying to select these fucking
-// buttons, it literally JUST worked smh
-// whatever PROGRESS BABY
-
-// WTF YOU NEED TO LINK THE SCRIPT AFTER THE
-// BUTTON HTML CONTENT....?!?!?!?!
-// idk but it works now, fucking weird
-// internet suggests to link in the <head> but that didn't work
-
-
 const rBtn = document.querySelector(".rock")
 const pBtn = document.querySelector(".paper")
 const sBtn = document.querySelector(".scissors")
 const btns = document.querySelectorAll(".btn")
+let newUserChoice = ""
 
-btns.addEventListener('click', function(e) {
-    btns.forEach(element => {
-        
-    });
+btns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+        newUserChoice = e.currentTarget.id;
+        console.log(newUserChoice);
+    })
 })
 
 // let pcChoice = getComputerChoice();
