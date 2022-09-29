@@ -10,9 +10,22 @@ function getComputerChoice() {
 // buttons, it literally JUST worked smh
 // whatever PROGRESS BABY
 
-const ass = document.querySelector(".test")
-console.log(ass);
-// rock.addEventListener('click', game)
+// WTF YOU NEED TO LINK THE SCRIPT AFTER THE
+// BUTTON HTML CONTENT....?!?!?!?!
+// idk but it works now, fucking weird
+// internet suggests to link in the <head> but that didn't work
+
+
+const rBtn = document.querySelector(".rock")
+const pBtn = document.querySelector(".paper")
+const sBtn = document.querySelector(".scissors")
+const btns = document.querySelectorAll(".btn")
+
+btns.addEventListener('click', function(e) {
+    btns.forEach(element => {
+        
+    });
+})
 
 // let pcChoice = getComputerChoice();
 // let userChoicePrompt = prompt("Rock, Paper, or Scissors?")
