@@ -1,5 +1,6 @@
 .build-notes {
     width: 500px;
+    max-width: fit-content;
 }
 
 html, body {
@@ -25,6 +26,8 @@ button {
 
 .title {
     font-size: 48px;
+    display: flex;
+    justify-content: center;
 }
 
 .options {
