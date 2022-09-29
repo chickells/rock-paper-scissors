@@ -16,7 +16,7 @@ let newUserChoice = ""
 btns.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
         newUserChoice = e.currentTarget.id;
-        console.log(newUserChoice);
+        playRound(userChoice = newUserChoice)
     })
 })
 
@@ -32,8 +32,8 @@ let round = 1
 
 function playRound () {  
     let pcChoice = getComputerChoice();
-    let userChoicePrompt = prompt("Rock, Paper, or Scissors?");
-    let userChoice = userChoicePrompt.toLowerCase();          
+    // let userChoicePrompt = prompt("Rock, Paper, or Scissors?");
+    // let userChoice = userChoicePrompt.toLowerCase();          
     
     if (userChoice === pcChoice) {
         result = "It's a tie!";
